@@ -2,12 +2,20 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8090     # сервер аутентификации
+
   cloud:
     loadbalancer:
       retry:
         enabled: true                        # включение повторных попыток при недоступности сервисов
       healthCheck:
         enabled: true                        # включение проверки состояния для сервисов        
+
 eureka:
   client:
     service-url:
