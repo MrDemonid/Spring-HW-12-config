@@ -18,7 +18,6 @@ spring:
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
-            - Path=/catalog/**
             - Path=/api/catalog/**
           filters:
             - Retry=5         # Повторить запрос до 5 раз при сбое       
@@ -37,10 +36,10 @@ spring:
           filters:
             - Retry=5         # Повторить запрос до 5 раз при сбое            
 #            - RemoveRequestHeader=Authorization   # удаляем исходный токен
-        - id: user-service
-          uri: lb://USER-SERVICE
+        - id: cart-service
+          uri: lb://CART-SERVICE
           predicates:
-            - Path=/api/user/**
+            - Path=/api/cart/**
           filters:
             - Retry=5         # Повторить запрос до 5 раз при сбое            
 #            - RemoveRequestHeader=Authorization   # удаляем исходный токен
